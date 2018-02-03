@@ -6,41 +6,91 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private var scoreForTeamA: Int = 0
+    private var scoreForTeamB: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        three_points.setOnClickListener {
-            threePoints()
+        // Team A on click listeners
+        team_a_three_points.setOnClickListener {
+            teamAThreePoints()
         }
 
-        two_points.setOnClickListener {
-            twoPoints()
+        team_a_two_points.setOnClickListener {
+            teamATwoPoints()
         }
 
-        free_throw.setOnClickListener {
-            freeThrow()
+        team_a_free_throw.setOnClickListener {
+            teamAFreeThrow()
         }
 
-        displayForTeamA(6)
+        // Team B on click listeners
+
+        team_b_three_points.setOnClickListener {
+            teamBThreePoints()
+        }
+
+        team_b_two_points.setOnClickListener {
+            teamBTwoPoints()
+        }
+
+        team_b_free_throw.setOnClickListener {
+            teamBFreeThrow()
+        }
+
+        displayForTeamA(scoreForTeamA)
+        displayForTeamB(scoreForTeamB)
     }
 
     /**
-     * Displays the given score for Team A.
+     * Team A Methods
      */
     private fun displayForTeamA(score: Int) {
         team_a_score.text = score.toString()
     }
 
-    fun threePoints() {
-        team_a_score.text = 3.toString()
+    private fun teamAThreePoints() {
+        scoreForTeamA += 3
+
+        displayForTeamA(scoreForTeamA)
     }
 
-    fun twoPoints() {
-        team_a_score.text = 2.toString()
+    private fun teamATwoPoints() {
+        scoreForTeamA += 2
+
+        displayForTeamA(scoreForTeamA)
     }
 
-    fun freeThrow() {
-        team_a_score.text = 1.toString()
+    private fun teamAFreeThrow() {
+        scoreForTeamA += 1
+
+        displayForTeamA(scoreForTeamA)
+    }
+
+    /**
+     * Team B Methods
+     */
+    private fun displayForTeamB(score: Int) {
+        team_b_score.text = score.toString()
+    }
+
+    private fun teamBThreePoints() {
+        scoreForTeamB += 3
+
+        displayForTeamB(scoreForTeamB)
+    }
+
+    private fun teamBTwoPoints() {
+        scoreForTeamB += 2
+
+        displayForTeamB(scoreForTeamB)
+    }
+
+    private fun teamBFreeThrow() {
+        scoreForTeamB += 1
+
+        displayForTeamB(scoreForTeamB)
     }
 }
