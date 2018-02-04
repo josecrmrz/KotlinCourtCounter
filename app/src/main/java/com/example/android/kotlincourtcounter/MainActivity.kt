@@ -12,33 +12,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        /**
+         * Team A onClick listeners
+         */
+        team_a_three_points.setOnClickListener { teamAThreePoints() }
+        team_a_two_points.setOnClickListener { teamATwoPoints() }
+        team_a_free_throw.setOnClickListener { teamAFreeThrow() }
 
-        // Team A on click listeners
-        team_a_three_points.setOnClickListener {
-            teamAThreePoints()
-        }
+        /**
+         * Team B onClick listeners
+         */
+        team_b_three_points.setOnClickListener { teamBThreePoints() }
+        team_b_two_points.setOnClickListener { teamBTwoPoints() }
+        team_b_free_throw.setOnClickListener { teamBFreeThrow() }
 
-        team_a_two_points.setOnClickListener {
-            teamATwoPoints()
-        }
-
-        team_a_free_throw.setOnClickListener {
-            teamAFreeThrow()
-        }
-
-        // Team B on click listeners
-
-        team_b_three_points.setOnClickListener {
-            teamBThreePoints()
-        }
-
-        team_b_two_points.setOnClickListener {
-            teamBTwoPoints()
-        }
-
-        team_b_free_throw.setOnClickListener {
-            teamBFreeThrow()
-        }
+        /**
+         * Reset onClick listeners
+         */
+        reset_button.setOnClickListener { resetScores() }
 
         displayForTeamA(scoreForTeamA)
         displayForTeamB(scoreForTeamB)
@@ -91,6 +82,17 @@ class MainActivity : AppCompatActivity() {
     private fun teamBFreeThrow() {
         scoreForTeamB += 1
 
+        displayForTeamB(scoreForTeamB)
+    }
+
+    /**
+     * Reset team scores to 0
+     */
+    private fun resetScores() {
+        scoreForTeamA = 0
+        scoreForTeamB = 0
+
+        displayForTeamA(scoreForTeamA)
         displayForTeamB(scoreForTeamB)
     }
 }
