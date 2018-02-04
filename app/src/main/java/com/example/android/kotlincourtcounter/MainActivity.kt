@@ -15,16 +15,18 @@ class MainActivity : AppCompatActivity() {
         /**
          * Team A onClick listeners
          */
-        team_a_three_points.setOnClickListener { teamAThreePoints() }
-        team_a_two_points.setOnClickListener { teamATwoPoints() }
-        team_a_free_throw.setOnClickListener { teamAFreeThrow() }
+        team_a_touchdown.setOnClickListener { teamATouchdown() }
+        team_a_field_goal.setOnClickListener { teamAFieldGoal() }
+        team_a_extra_point.setOnClickListener { teamAExtraPoint() }
+        team_a_safety.setOnClickListener { teamASafety() }
 
         /**
          * Team B onClick listeners
          */
-        team_b_three_points.setOnClickListener { teamBThreePoints() }
-        team_b_two_points.setOnClickListener { teamBTwoPoints() }
-        team_b_free_throw.setOnClickListener { teamBFreeThrow() }
+        team_b_touchdown.setOnClickListener { teamBTouchdown() }
+        team_b_field_goal.setOnClickListener { teamBFieldGoal() }
+        team_b_extra_point.setOnClickListener { teamBExtraPoint() }
+        team_b_safety.setOnClickListener { teamBSafety() }
 
         /**
          * Reset onClick listeners
@@ -42,20 +44,26 @@ class MainActivity : AppCompatActivity() {
         team_a_score.text = score.toString()
     }
 
-    private fun teamAThreePoints() {
+    private fun teamATouchdown() {
+        scoreForTeamA += 6
+
+        displayForTeamA(scoreForTeamA)
+    }
+
+    private fun teamAFieldGoal() {
         scoreForTeamA += 3
 
         displayForTeamA(scoreForTeamA)
     }
 
-    private fun teamATwoPoints() {
-        scoreForTeamA += 2
+    private fun teamAExtraPoint() {
+        scoreForTeamA += 1
 
         displayForTeamA(scoreForTeamA)
     }
 
-    private fun teamAFreeThrow() {
-        scoreForTeamA += 1
+    private fun teamASafety() {
+        scoreForTeamA += 2
 
         displayForTeamA(scoreForTeamA)
     }
@@ -67,20 +75,26 @@ class MainActivity : AppCompatActivity() {
         team_b_score.text = score.toString()
     }
 
-    private fun teamBThreePoints() {
+    private fun teamBTouchdown() {
+        scoreForTeamB += 6
+
+        displayForTeamB(scoreForTeamB)
+    }
+
+    private fun teamBFieldGoal() {
         scoreForTeamB += 3
 
         displayForTeamB(scoreForTeamB)
     }
 
-    private fun teamBTwoPoints() {
-        scoreForTeamB += 2
+    private fun teamBExtraPoint() {
+        scoreForTeamB += 1
 
         displayForTeamB(scoreForTeamB)
     }
 
-    private fun teamBFreeThrow() {
-        scoreForTeamB += 1
+    private fun teamBSafety() {
+        scoreForTeamB += 2
 
         displayForTeamB(scoreForTeamB)
     }
